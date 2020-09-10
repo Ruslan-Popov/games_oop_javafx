@@ -60,7 +60,7 @@ public class Logic {
         return rst;
     }
 
-    public boolean isWin() {
+    public boolean isWin()  {
         return Win.check(convert());
     }
 
