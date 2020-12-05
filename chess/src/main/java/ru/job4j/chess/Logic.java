@@ -22,9 +22,11 @@ public final class Logic {
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
         for (int i = 0; i < figures.length; i++) {
-            for (int j = 0; j < steps.length; j++) {
-                if (steps[j] == figures[i].position()) {
-                    throw new OccupiedCellException();
+            if (figures[i] != null) {
+                for (int j = 0; j < steps.length; j++) {
+                    if (steps[j].equals(figures[i].position())) {
+                        throw new OccupiedCellException();
+                    }
                 }
             }
         }
@@ -43,6 +45,6 @@ public final class Logic {
                 return index;
             }
         }
-        throw new FigureNotFoundException();
+        throw new FigureNotFoundException("Selected empty field");
     }
 }
